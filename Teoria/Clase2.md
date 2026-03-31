@@ -102,6 +102,55 @@ R1(config)# ip route 192.168.2.0 255.255.255.0 10.0.0.2
 # Traducción: "Para llegar a la red 192.168.2.0, envía el paquete a la IP 10.0.0.2 (que es la puerta del router vecino)".
 
 # Ejemplo 2: Ruta estática por defecto (La "Ruta de escape")
-R1(config)# ip route 0.0.0.0 0.0.0.0 200.20.20.1         
+R1(config)# ip route 0.0.0.0 0.0.0.0 200.20.20.1
+
+```
+#### Enrutamiento Dinámico (EL Modo Automático)
+###### ¿Qué es?
+Los routers usan un protocolo (como RIP, OSPF o EIGRP) para hablar entre ellos y descubrir el mapa de la red automáticamente.
+
+###### Ventaja:
+Si un cable se rompe, los routers calculan solos un nuevo camino.
+
+###### Desventaja:
+Consume memoria RAM y procesador del equipo.
+###### Comandos Necesarios
+Aquí usamos OSPF (Open Shortest Path First), que es el estándar de la industria y el protocolo estrella que verás en tu curso:
+
+```
+# (Asumiendo que estás en el modo global: R1(config)# )
+
+# 1. Encendemos el "cerebro" dinámico
+R1(config)# router ospf 1                
+# Inicia el proceso de enrutamiento OSPF con el identificador "1".
+
+# 2. Presentamos nuestras redes a los vecinos (Comando Network)
+# OJO: OSPF no usa la máscara de subred normal, usa la "Wildcard" (la máscara invertida).
+R1(config-router)# network 192.168.1.0 0.0.0.255 area 0  
+# Traducción: "Publica mi red local (192.168.1.0) hacia los demás routers, y dile que pertenecemos a la zona principal (Area 0)".
+
+R1(config-router)# network 10.0.0.0 0.0.0.3 area 0       
+# Traducción: "Publica también mi red WAN (el enlace punto a punto) para que los vecinos sepan cómo llegar a mí".
+R1(config-router)# end
+
 # Traducción: "Si alguien te pide ir a una IP que NO conoces (como Internet), envíalo todo a la IP 200.20.20.1 (el router del proveedor)".
 ```
+
+#### Guardar y verificar 
+###### Comandos de verificación
+Una vez que terminaste de configurar todo, debes revisar si funcionó y guardar tu trabajo para que no se borre si apagas el simulador. (Se hace en el modo Privilegiado #).
+
+```
+# --- COMANDOS DE DIAGNÓSTICO ---
+R1# show ip route               # El comando MÁS importante. Te muestra la tabla de enrutamiento. 
+                                # (Busca las líneas con 'C' de Conectada, 'S' de Estática, o 'O' de OSPF).
+
+R1# show ip interface brief     # Te muestra una lista rápida de tus cables. Verifica que digan "Up / Up".
+
+R1# ping 192.168.2.10           # Lanza paquetes de prueba para ver si llegas al destino.
+
+# --- GUARDAR EL TRABAJO ---
+R1# copy running-config startup-config  
+# Copia todo lo que acabas de teclear (RAM) al disco duro seguro del router (NVRAM).
+```
+
