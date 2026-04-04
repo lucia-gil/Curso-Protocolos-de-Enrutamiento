@@ -6,7 +6,7 @@ Este directorio contiene las soluciones a las tareas individuales y grupales asi
 
 | Tarea | Tema | Descripción | Estado |
 | :--- | :--- | :--- | :--- |
-| **[Tarea 01]()** | Enrutamiento Estático | Interconexión de 4 routers mediante HUB central con restricciones de IP. | ✅ Completado |
+| **[Tarea 01](https://github.com/lucia-gil/Curso-Protocolos-de-Enrutamiento/tree/main/Tareas/1.%20Tarea%20de%20Enrutamiento%20Est%C3%A1tico)** | Enrutamiento Estático | Interconexión de 4 routers mediante HUB central con restricciones de IP. | ✅ Completado |
 | **Tarea 02** | NAT / PAT | (Próximamente) | ⏳ Pendiente |
 | **Tarea 03** | OSPF | (Próximamente) | ⏳ Pendiente |
 
