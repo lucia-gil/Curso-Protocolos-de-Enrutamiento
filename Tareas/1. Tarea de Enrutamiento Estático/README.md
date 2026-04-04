@@ -9,7 +9,7 @@ La topología requiere conectar 8 subredes distintas (2 por router) con las sigu
 - **Direccionamiento:** Máximo 2 direcciones IPv4 por interfaz física.
 - **Método:** Enrutamiento Estático exclusivamente.
 
-
+<img width="871" height="544" alt="image" src="https://github.com/user-attachments/assets/539fb100-8110-41c6-b8d1-25c2b32ab560" />
 
 ## 🛠️ Diseño de la Solución
 
