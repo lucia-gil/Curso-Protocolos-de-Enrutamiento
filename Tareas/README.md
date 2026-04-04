@@ -6,7 +6,7 @@ Este directorio contiene las soluciones a las tareas individuales y grupales asi
 
 | Tarea | Tema | Descripción | Estado |
 | :--- | :--- | :--- | :--- |
-| **[Tarea 01](./Tarea-Enrutamiento-Estatico)** | Enrutamiento Estático | Interconexión de 4 routers mediante HUB central con restricciones de IP. | ✅ Completado |
+| **[Tarea 01](Tareas/1. Tarea de Enrutamiento Estático)** | Enrutamiento Estático | Interconexión de 4 routers mediante HUB central con restricciones de IP. | ✅ Completado |
 | **Tarea 02** | NAT / PAT | (Próximamente) | ⏳ Pendiente |
 | **Tarea 03** | OSPF | (Próximamente) | ⏳ Pendiente |
 
